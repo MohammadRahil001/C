@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+int main(){
+
+int i;
+
+int int_array[5] = {1,2,3,4,5};
+char char_array[5] = {'a','b','c','d','e'};
+
+int *int_ptr;
+char *char_ptr;
+
+int_ptr =(int *) char_array;
+char_ptr =(char *) int_array;
+
+for(i=0;i<5;i++){
+printf("[Integer pointer] point to %p and contains %c\n",int_ptr,*int_ptr);
+int_ptr =(int *)((char *) int_ptr+1);
+}
+
+for(i=0;i<5;i++){
+printf("[Char pointer] point to %p and contains %d\n",char_ptr,*char_ptr);
+char_ptr= (char *)((int *)char_ptr+1);
+}
+
+return 0;
+}
